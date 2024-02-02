@@ -4,26 +4,47 @@ public class CalcSpeed{
 	public static void main(String[] args){
 		Scanner in = new Scanner(System.in);
 		System.out.print("afstand in meters: ");
-		int afstand = in.nextInt();
+		int distanceInMeters = in.nextInt();
 		
 		System.out.print("aantal uren: ");
-		int uren = in.nextInt();
+		int hours = in.nextInt();
 		
 		System.out.print("aantal minuten: ");
-		int minuten = in.nextInt();
+		int minutes = in.nextInt();
 		
 		System.out.print("aantal seconden: ");
-		int seconden = in.nextInt();
+		int seconds = in.nextInt();
 		
-		int totaalSeconden = seconden + (minuten*60) + (uren*60*60);
-		float mPerS = afstand/totaalSeconden;
+		int totalSeconds = seconds + (minutes*60) + (hours*60*60);
+		Speed spd = new Speed(distanceInMeters, totalSeconds);
+		double mPerS = (double)distanceInMeters/totalSeconds;
 		
-		float urenTotaal = totaalSeconden/3600.0f;
-		float kmPerH = (afstand/1000.0f)/urenTotaal;
-		float mijlPerH = (afstand/1609.0f)/urenTotaal;
-		
-		System.out.println("snelheid in m/s: " + mPerS);
-		System.out.println("snelheid in km/h: " + kmPerH);
-		System.out.println("snelheid in mijl/h: " + mijlPerH);
+		System.out.printf("snelheid in m/s: %.4f%n", spd.getSpeedInMetersPerSecond());
+		System.out.printf("snelheid in km/h: %.4f%n", spd.getSpeedInKilometersPerHour());
+		System.out.printf("snelheid in mijl/h: %.4f%n", spd.getSpeedInMilesPerHour());
+	}
+}
+
+class Speed{
+	private int distanceInMeters;
+	private int timeInSeconds;
+	private double timeInHours;
+	
+	public Speed(int distanceInMeters, int timeInSeconds){
+		this.distanceInMeters = distanceInMeters;
+		this.timeInSeconds = timeInSeconds;
+		timeInHours = timeInSeconds/3600.0;
+	}
+	
+	public double getSpeedInMetersPerSecond(){
+		return (double)distanceInMeters/timeInSeconds;
+	}
+	
+	public double getSpeedInKilometersPerHour(){
+		return (distanceInMeters/1000.0)/timeInHours;
+	}
+	
+	public double getSpeedInMilesPerHour(){
+		return (distanceInMeters/1609.0)/timeInHours;
 	}
 }
