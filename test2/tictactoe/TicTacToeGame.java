@@ -8,9 +8,10 @@ public class TicTacToeGame {
         TicTacToe game = new TicTacToe();
 		game.showBoardHelp();
 		
-		boolean ownNames = askYesOrNo("Do you want to set your own playernames?");
 		boolean bestOfFive = askYesOrNo("Do you want to play best out of 5?");
         do {
+			boolean ownNames = askYesOrNo("Do you want to set your own playernames?");
+			
             if(ownNames){
 				String playerX = askForString("Please enter the name for who plays 'X': ");
 				game.setPlayerX(playerX);
