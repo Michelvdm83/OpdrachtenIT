@@ -5,8 +5,8 @@ public class Week4{
 	public static void main(String[] args){
 		int lucas = askForInt("geef een natuurlijk getal: ");
 		printLucasRow(lucas);
-		
-		int a = 5;
+		System.out.println("Java".substring(0,1));
+/*		int a = 5;
 		int b = 2;
 		System.out.println(exponent(a,b));
 		System.out.println(isOdd(b));
@@ -15,7 +15,7 @@ public class Week4{
 		int[] test = new int[]{1, 2, 3, 4, 5};
 		System.out.println(Arrays.toString(test));
 		int[] test2 = invert(test);
-		System.out.println(Arrays.toString(test));
+		System.out.println(Arrays.toString(test));*/
 	}
 	
 	private static void printLucasRow(int nrOfNumbers){
