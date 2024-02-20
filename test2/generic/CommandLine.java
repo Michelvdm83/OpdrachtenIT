@@ -8,6 +8,13 @@ import static generic.AnsiColors.*;
 public class CommandLine {
 
     private static final Scanner in = new Scanner(System.in);
+	
+	public static void clearScreen(){
+		for(int i = 0; i < Toolkit.getDefaultToolkit().getScreenSize().height; i++){
+			System.out.println();
+		}
+		//System.out.println("\n".repeat(Toolkit.getDefaultToolkit().getScreenSize().height));
+	}
 
     private static int askForInt() {
         do {
