@@ -3,12 +3,15 @@ import java.time.Duration;
 
 public class Week5{
 	public static void main(String[] args){
-		LocalTime start1 = LocalTime.now();
-		System.out.println(fibonacci(50L));
-		System.out.println(Duration.between(start1, LocalTime.now()));
-		LocalTime start2 = LocalTime.now();
-		System.out.println(fib(50L));
-		System.out.println(Duration.between(start2, LocalTime.now()));
+//		LocalTime start1 = LocalTime.now();
+//		System.out.println(fibonacci(50L));
+//		System.out.println(Duration.between(start1, LocalTime.now()));
+//		LocalTime start2 = LocalTime.now();
+//		System.out.println(fib(93L));
+//		System.out.println(Duration.between(start2, LocalTime.now()));
+		LocalTime start3 = LocalTime.now();
+		System.out.println(fibbi(2000000L));
+		System.out.println(Duration.between(start3, LocalTime.now()));
 		//printTables(10);
 	}
 	
@@ -20,6 +23,15 @@ public class Week5{
 		if(n <= 1 || n == 5) return n;
 		if(n <  5) return n-1;
 		return 5*fib(n-3) - 2*fib(n-5);
+	}
+	
+	private static long fibbi(long n){
+		double root5 = Math.sqrt(5);
+		double gr = (1 + root5) / 2;
+		double igr = 1 - gr;
+		double value = (Math.pow(gr, n) - Math.pow(igr, n)) / root5;
+
+		return (long)Math.floor(value + 0.5); 
 	}
 	
 /*	private static void printTables(int until){
@@ -38,21 +50,3 @@ public class Week5{
 		}
 	}*/
 }
-
-// 0 1 1 2 3 5 8 13 21 34 55 89
-//21 = 3*8-3 || 21 = 2*13-5 || 8 stappen, dus: 
-//fib(8) = 21
-//= 2* fib(7) - fib(5)
-//= 3* fib(6) - fib(4)
-//= 7* fib(4) - fib(0)
-//= 5* fib(5) - 2*fib(3)
-/*
-fib(8) = 21 <3*n - 3>
-== 		fib(7)		+ 		fib(6)
-== fib(6) + fib(5) 	+ fib(5) + fib(4)
-== 5 4		4 3			4 3		3 2
-==4 3 3 2  3 2 2 1	  3 2 2 1  2 1 1
-*/
-//fib(7)=13 3*5-2 < 3*n - 8 
-//5* fib(4) - 2* fib(2)
-//15 - 2

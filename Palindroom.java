@@ -41,10 +41,10 @@ public class Palindroom{
 		System.out.println("\n\n");
 		
 		int highestCount = Collections.max(countList.values());
-		for(int i = highestCount; i >= 0; i--){
+		for(int currentCount = highestCount; currentCount >= 0; currentCount--){
 			for(char c: countList.keySet()){
-				if(i > 0){
-					System.out.print((countList.get(c)>=i? "*" : " "));
+				if(currentCount > 0){
+					System.out.print((countList.get(c)>=currentCount? "*" : " "));
 				}else{
 					System.out.print(c);
 				}
@@ -53,8 +53,8 @@ public class Palindroom{
 			System.out.println();
 		}
 		
-		System.out.println(input + " -> " + reversed);
-		if(reversed.equals(input)) System.out.println("Palindroom!");
+		//System.out.println(input + " -> " + reversed);
+		//if(reversed.equals(input)) System.out.println("Palindroom!");
 	}
 	
 	public static void main(String[] args){
